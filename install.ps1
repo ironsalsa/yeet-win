@@ -18,11 +18,11 @@ try {
 }
 
 if (-not (Test-Path -Path ".\ffmpeg")) {
-    if (-not (Test-Path -Path ".\ffmpeg-master-latest-win64-gpl.zip")) {
-        throw "ffmpeg installer zip not found: ffmpeg-master-latest-win64-gpl.zip"
+    $file = "ffmpeg-master-latest-win64-gpl"
+    if (-not (Test-Path -Path ".\$file")) {
+        Invoke-WebRequest -Uri "https://github.com/yt-dlp/FFmpeg-Builds/releases/download/latest/$file.zip" -OutFile "$file.zip"
     }
-    Expand-Archive -LiteralPath ffmpeg-master-latest-win64-gpl.zip -DestinationPath .
-    Move-Item ffmpeg-master-latest-win64-gpl ffmpeg
+    Expand-Archive -LiteralPath "$file.zip" -DestinationPath "ffmpeg"
 }
 
 
