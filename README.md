@@ -4,11 +4,11 @@ This helps install and run https://github.com/yt-dlp/yt-dlp on a Windows compute
 
 I got very tired of the clicky-clicky methods used for Python and FFmpeg installers and scripted it.
 
-Note that FFmpeg is installed right in this directory, and the install.ps1 script adds the ffmpeg\bin folder to your system path and reboots your system.
+Note that FFmpeg is installed right in this directory, and the install.ps1 script adds the ffmpeg\bin folder to your system path and reboots your system without asking. It's not pretty, but at least it's idempotent! No actions will be taken on a properly configured computer/folder.
 
 # Install
 
-* Open Admin PowerShell
+* Open Admin PowerShell in this folder
 * Run "set-executionpolicy unrestricted" to allow scripts
 * Run "./install.ps1" to run install script
 * Run "set-executionpolicy restricted" to put back Windows to the secure setting
